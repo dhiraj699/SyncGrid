@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root { height: 100%; }
+  body { font-feature-settings: 'tnum' 0; }
+  ::selection { background: rgb(56 189 248 / 0.3); }
+  * { scrollbar-width: thin; scrollbar-color: #334155 transparent; }
+}
+
+@layer components {
+  /* Confidential values the viewer may not read: a hatch rather than a blank, so the lock is visible at a glance. */
+  .masked-cell {
+    background-image: repeating-linear-gradient(135deg, rgb(71 85 105 / 0.28) 0 1px, transparent 1px 6px);
+  }
+
+  input[type='range'].scrubber {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    border-radius: 9999px;
+    background: #1e293b;
+    outline: none;
+  }
+  input[type='range'].scrubber::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 14px;
+    border-radius: 2px;
+    border: 2px solid #020617;
+    background: #38bdf8;
+    cursor: grab;
+  }
+  input[type='range'].scrubber::-moz-range-thumb {
+    width: 10px;
+    height: 12px;
+    border-radius: 2px;
+    border: 2px solid #020617;
+    background: #38bdf8;
+    cursor: grab;
+  }
+  input[type='range'].scrubber:focus-visible::-webkit-slider-thumb { outline: 2px solid #7dd3fc; }
+}
